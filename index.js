@@ -9,9 +9,12 @@ const processdata = require('./routes/processdata');
 app.use(bodyParser.json());
 //Import Route
 app.use('/data', processdata);
+app.get('', (req, res)=> {
+    res.send("Wow")
+})
 
 mongoose.connect(
     process.env.DB_CONNECTION,
     {useNewUrlParser: true },
     () => console.log('connected to database'))
-app.listen(3000);
+app.listen(5000);
